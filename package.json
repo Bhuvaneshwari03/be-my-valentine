@@ -1,0 +1,11 @@
+{
+  "name": "valentine-ask",
+  "version": "1.0.0",
+  "description": "Will you be my Valentine site",
+  "scripts": {
+    "dev": "npx serve ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
