@@ -6,11 +6,30 @@ const gif = document.getElementById("valentineGif");
 // When Yes is clicked
 yesBtn.addEventListener("click", () => {
   question.innerHTML = "Yay! I knew it! ❤️";
-  // Change to a happy dance/kiss gif
-  gif.src = "https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-hugs.gif";
+  
+  // Create a video element to replace the gif
+  const video = document.createElement('video');
+  video.src = "./InShot_20260203_190724193.mp4"; // The new video file
+  video.autoplay = true;
+  video.controls = true;
+  video.loop = true;
+  
+  // Style the video to look nice
+  video.style.maxWidth = "100%";
+  video.style.maxHeight = "400px"; // Allow it to be taller than the gif
+  video.style.borderRadius = "15px";
+  video.style.marginBottom = "20px";
+  video.style.boxShadow = "0 4px 15px rgba(0,0,0,0.2)";
 
-  // Hide the buttons
+  // Replace the image with the video
+  gif.parentNode.replaceChild(video, gif);
+
+  // Hide the buttons container
   document.querySelector(".buttons").style.display = "none";
+  
+  // CRITICAL FIX: Also explicitly hide the No button 
+  // because it might have been moved to the <body> tag
+  noBtn.style.display = "none"; 
 
   // Optional: Add confetti or background change here
   startConfetti();
