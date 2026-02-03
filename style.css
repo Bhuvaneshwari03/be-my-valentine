@@ -9,88 +9,93 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: 'Outfit', sans-serif;
-    color: #fff;
+    /* Soft Pink Gradient */
+    background: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+    /* Cute heart pattern overlay */
+    background-color: #ffc1e3;
+    background-image: radial-gradient(#ff9a9e 15%, transparent 16%),
+                      radial-gradient(#ff9a9e 15%, transparent 16%);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+    font-family: 'Indie Flower', cursive; /* Cute handwritten font */
     overflow: hidden;
-    /* Deep Blue & Red 'Versus' Gradient */
-    /* Gives a cool professional gamer vibe while keeping the Valentine red */
-    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-    background-size: cover;
+    color: #5c2c2c; /* Softer brown text instead of harsh black */
 }
-
-/* Removed chaotic animation, keeping it stable and clean */
 
 .container {
     text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 3.5rem;
-    border-radius: 30px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.6);
+    padding: 3rem;
+    border-radius: 30px; /* Super round */
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    backdrop-filter: blur(8px);
+    border: 4px solid #fff;
     max-width: 90%;
     position: relative;
 }
 
 .gif-container img {
     max-width: 100%;
-    height: 220px;
+    height: 200px;
     border-radius: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-    border: 4px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 h1 {
-    font-weight: 900;
+    font-family: 'Pacifico', cursive;
+    color: #d32f2f;
     font-size: 3rem;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-    /* Gradient Text overlay */
-    background: linear-gradient(to right, #fff, #b3e5fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 0px white;
+    text-transform: none; /* Back to normal case */
+    background: none;
+    -webkit-text-fill-color: initial;
+    filter: none;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
     position: relative; 
 }
 
 .btn {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.3rem;
-    padding: 18px 45px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.5rem;
+    padding: 12px 40px;
     border: none;
     cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 800; /* Extra bold */
-    letter-spacing: 1px;
-    border-radius: 50px; /* Pill shape */
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
-    color: white;
+    text-transform: none;
+    font-weight: bold;
+    letter-spacing: normal;
+    border-radius: 50px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: white;
 }
 
 .yes-btn {
-    /* Super vibrant gradient */
-    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
-    box-shadow: 0 10px 20px rgba(0, 201, 255, 0.4);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    background-color: #ff6b6b; /* Cute coral pink */
+    color: white;
+    box-shadow: 0 4px 0px #e55353;
 }
 
 .yes-btn:hover {
-    transform: scale(1.05) translateY(-3px);
-    box-shadow: 0 15px 30px rgba(0, 201, 255, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0px #e55353;
+    background-color: #ff5252;
 }
 
 .no-btn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255,255,255,0.4);
-    backdrop-filter: blur(5px);
+    background-color: #fff;
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    box-shadow: 0 4px 0px #ffcccc;
 }
+
+/* No hover for No button as it moves */
 
 /* No hover for No button as it moves */
 
