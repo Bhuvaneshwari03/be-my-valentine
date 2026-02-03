@@ -11,7 +11,7 @@ yesBtn.addEventListener("click", () => {
   const video = document.createElement('video');
   video.src = "./InShot_20260203_190724193.mp4"; // The new video file
   video.autoplay = true;
-  video.controls = true;
+  video.controls = false; // Hide the ugly controls
   video.loop = true;
   
   // Style the video to look nice

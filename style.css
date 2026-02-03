@@ -22,6 +22,26 @@ body {
     color: #5c2c2c; /* Softer brown text instead of harsh black */
 }
 
+/* Floating Decorative Cats */
+.floating-cat {
+    position: absolute;
+    bottom: 0;
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    pointer-events: none; /* Let clicks pass through */
+    z-index: 10;
+}
+
+.cat-left {
+    left: 20px;
+    bottom: 20px;
+}
+
+.cat-right {
+    right: 20px;
+    bottom: 20px;
+}
+
 .container {
     text-align: center;
     background: rgba(255, 255, 255, 0.6);
