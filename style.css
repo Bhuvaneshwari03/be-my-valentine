@@ -147,6 +147,10 @@ h1 {
     background: none;
     -webkit-text-fill-color: initial;
     filter: none;
+    
+    /* CURSOR FIX: Stop the I-beam cursor */
+    cursor: default;
+    user-select: none; /* Optional: prevents highlighting text */
 }
 
 .buttons {
