@@ -22,6 +22,8 @@ video.preload = "auto"; // Tell browser to download it ASAP
 video.loop = true;
 video.controls = false;
 video.muted = false; // Start muted to allow autoplay if needed, but user interaction allows sound usually
+video.playsInline = true; // Required for iOS to play inline
+video.setAttribute('playsinline', ''); // Explicit attribute for compatibility
 video.style.maxWidth = "100%";
 video.style.height = "200px"; // Match the gif height initially to prevent jump
 video.style.borderRadius = "15px";
@@ -44,7 +46,12 @@ yesBtn.addEventListener("click", () => {
   gif.parentNode.replaceChild(video, gif);
   
   // Play immediately
-  video.play().catch(e => console.log("Playback failed:", e));
+  video.play().catch(e => {
+      console.log("Playback failed:", e);
+      // Fallback: Try playing muted if unmuted failed (common browser policy)
+      video.muted = true;
+      video.play().catch(e2 => console.error("Muted playback also failed", e2));
+  });
 
   // Hide the buttons container
   document.querySelector(".buttons").style.display = "none";
