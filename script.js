@@ -2,6 +2,17 @@ const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const question = document.getElementById("question");
 const gif = document.getElementById("valentineGif");
+const container = document.querySelector(".container");
+
+// Wait for fonts to load before showing the container to prevent layout shift
+document.fonts.ready.then(() => {
+    container.classList.add("loaded");
+});
+
+// Fallback: If fonts take too long, show it anyway after 1s
+setTimeout(() => {
+    container.classList.add("loaded");
+}, 1000);
 
 // When Yes is clicked
 yesBtn.addEventListener("click", () => {
@@ -68,6 +79,8 @@ function moveButton() {
   // make 'fixed' positioning act relative to the container instead of the viewport.
   if (noBtn.parentNode !== document.body) {
       document.body.appendChild(noBtn);
+      // Re-apply styles needed for independent existence
+      noBtn.style.position = "fixed";
   }
 
   // Apply new position
