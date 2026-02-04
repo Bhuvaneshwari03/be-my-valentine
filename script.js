@@ -15,42 +15,23 @@ setTimeout(() => {
 }, 1000);
 
 // --- PRELOAD VIDEO ---
-// Create the video element immediately so it buffers while the user decides
-const video = document.createElement('video');
-video.src = "./InShot_20260203_190724193.mp4"; 
-video.preload = "auto"; // Tell browser to download it ASAP
-video.loop = true;
-video.controls = false;
-video.muted = false; // Start muted to allow autoplay if needed, but user interaction allows sound usually
-video.playsInline = true; // Required for iOS to play inline
-video.setAttribute('playsinline', ''); // Explicit attribute for compatibility
-video.style.maxWidth = "100%";
-video.style.height = "200px"; // Match the gif height initially to prevent jump
-video.style.borderRadius = "15px";
-video.style.marginBottom = "20px";
-video.style.boxShadow = "0 4px 15px rgba(0,0,0,0.2)";
-video.style.objectFit = "cover"; // Ensure it fills nicely
-
-// Force loading
-video.load();
+const video = document.getElementById("valentineVideo");
 
 // When Yes is clicked
 yesBtn.addEventListener("click", () => {
   question.innerHTML = "Yay! I knew it! ❤️";
   
-  // Style adjustments for the playing state
-  video.style.height = "auto"; 
-  video.style.maxHeight = "400px";
+  // Hide GIF, Show Video
+  gif.style.display = "none";
+  video.style.display = "block";
   
-  // Replace the image with the preloaded video
-  gif.parentNode.replaceChild(video, gif);
-  
-  // Play immediately
-  video.play().catch(e => {
+  // Play immediately - forcing muted first for mobile policy
+  video.muted = true; 
+  video.play().then(() => {
+      // Optional: Unmute if browser allows, otherwise keep muted
+      // video.muted = false; 
+  }).catch(e => {
       console.log("Playback failed:", e);
-      // Fallback: Try playing muted if unmuted failed (common browser policy)
-      video.muted = true;
-      video.play().catch(e2 => console.error("Muted playback also failed", e2));
   });
 
   // Hide the buttons container
